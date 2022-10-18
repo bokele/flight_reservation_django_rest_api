@@ -6,6 +6,9 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
+from rest_framework import filters
+from rest_framework.permissions import IsAuthenticated
+
 
 # Create your views here.
 
@@ -42,12 +45,17 @@ def store_reservation(request):
 class FlightViewSet(viewsets.ModelViewSet):
     queryset = Flight.objects.all()
     serializer_class = FlightSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ["departtureCity", "arrialCity", "dateOfDeparture"]
+    permission_classes = [IsAuthenticated]
 
 class PassangerViewSet(viewsets.ModelViewSet):
     queryset = Passanger.objects.all()
     serializer_class = PassangerSerializer
+    permission_classes = [IsAuthenticated]
 
 class ReservationViewSet(viewsets.ModelViewSet):
     queryset = Reservation.objects.all()
     serializer_class = ReservationSerializer
+    permission_classes = [IsAuthenticated]
 
