@@ -9,8 +9,8 @@ class Flight(models.Model):
     arrialCity = models.CharField(max_length=100)
     dateOfDeparture = models.DateField()
     estimatedTimeOfDeparture = models.TimeField()
-    createdAt = models.DateTimeField(now=True, blank=True)
-    updatedAt = models.DateTimeField(now=True, blank=True)
+    createdAt = models.DateTimeField(auto_now_add=True, blank=True)
+    updatedAt = models.DateTimeField(auto_now=True, blank=True)
 
 
 class Passanger(models.Model):
@@ -19,11 +19,11 @@ class Passanger(models.Model):
     middleName = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
     phone = models.CharField(max_length=15)
-    createdAt = models.DateTimeField(now=True, blank=True)
-    updatedAt = models.DateTimeField(now=True, blank=True)
+    createdAt = models.DateTimeField(auto_now_add=True, blank=True)
+    updatedAt = models.DateTimeField(auto_now=True, blank=True)
 
 class Reservation(models.Model):
     flight = models.OneToOneField(Flight, on_delete=models.CASCADE)
     passanger = models.OneToOneField(Passanger, on_delete=models.CASCADE)
-    createdAt = models.DateTimeField(now=True, blank=True)
-    updatedAt = models.DateTimeField(now=True, blank=True)
+    createdAt = models.DateTimeField(auto_now_add=True, blank=True)
+    updatedAt = models.DateTimeField(auto_now=True, blank=True)
