@@ -10,6 +10,6 @@ router.register("reservations", views.ReservationViewSet)
 
 urlpatterns = [
     path("", include(router.urls) ),
-path("find/flights/", views.find_flights)
-path("reservations/store/", views.store_reservation)
+path("find/flights/", views.find_flights),
+path("reservations/store/", views.store_reservation),
 ]
