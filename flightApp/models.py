@@ -7,7 +7,7 @@ from django.conf import settings
 # Create your models here.
 
 class Flight(models.Model):
-    flifhtNumber = models.CharField(max_length=10)
+    flightNumber = models.CharField(max_length=10)
     operationAirlines = models.CharField(max_length=100)
     departtureCity = models.CharField(max_length=100)
     arrialCity = models.CharField(max_length=100)
